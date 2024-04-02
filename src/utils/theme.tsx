@@ -7,7 +7,7 @@ export const theme = extendTheme({
       "html, body": {
         color: "black",
         lineHeight: "tall",
-        bg: "#EBEBE8",
+        bg: "#FFFEFC",
         fontFamily: "Quicksand Variable",
       },
     },
