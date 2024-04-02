@@ -1,6 +1,5 @@
-.swiper-items {
+.swiper-activities {
   display: flex;
-  overflow: hidden;
-  position: relative;
-  justify-items: center;
+  justify-content: center;
+  justify-items: flex-end;
 }

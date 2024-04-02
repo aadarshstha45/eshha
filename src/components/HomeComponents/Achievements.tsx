@@ -14,7 +14,7 @@ import { useAchievementStore } from "../../utils/store";
 export const Achievements = () => {
   const { displayCount, incrementDisplayCount } = useAchievementStore();
   return (
-    <Container maxW={"container.xl"} py={20}>
+    <Container id="achievements" maxW={"container.xl"} py={20}>
       <Box>
         <Text
           fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
@@ -37,7 +37,7 @@ export const Achievements = () => {
                 alt={`achievement-${id}`}
                 border={"3px solid"}
                 borderColor={"#C1B7B7"}
-                h={"386px"}
+                h={{ base: "300px", sm: "320px", md: "386px" }}
                 w={"262px"}
               />
             </GridItem>

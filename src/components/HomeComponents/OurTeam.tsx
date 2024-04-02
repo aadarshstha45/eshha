@@ -54,7 +54,7 @@ export const OurTeam = () => {
                 <CardHeader alignSelf={"center"}>
                   <Image
                     h={"200px"}
-                    w={{ base: "auto", sm: "250px", lg: "200px" }}
+                    w={"200px"}
                     objectFit={"cover"}
                     src={image}
                     alt={name}

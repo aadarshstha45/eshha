@@ -5,15 +5,13 @@ import {
   HStack,
   IconButton,
   Image,
-  Link,
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 import Logo from "../assets/images/logo.png";
 import { navItems } from "../data/navItems";
-
 export const NavBar = () => {
   const [isLessThan970] = useMediaQuery("(max-width: 970px)");
   const [isLessThan330] = useMediaQuery("(max-width: 330px)");
@@ -50,15 +48,18 @@ export const NavBar = () => {
         >
           {navItems.map(({ id, title, to }) => (
             <Link
-              _hover={{
-                textDecoration: "none",
-              }}
-              fontSize={{ base: "14px", sm: "16px", md: "18px" }}
-              as={NavLink}
+              // fontSize={{ base: "14px", sm: "16px", md: "18px" }}
               key={id}
               to={to}
+              smooth={true}
+              duration={1000}
             >
-              {title}
+              <Text
+                cursor={"pointer"}
+                fontSize={{ base: "14px", sm: "16px", md: "18px" }}
+              >
+                {title}
+              </Text>
             </Link>
           ))}
         </HStack>
@@ -76,6 +77,7 @@ export const NavBar = () => {
           align={"center"}
           flexDir={"column"}
           textColor={"white"}
+          gap={5}
         >
           <IconButton
             top={7}
@@ -90,15 +92,8 @@ export const NavBar = () => {
             icon={<HamburgerIcon />}
           />
           {navItems.map(({ id, title, to }) => (
-            <Link
-              _hover={{
-                textDecoration: "none",
-              }}
-              as={NavLink}
-              key={id}
-              to={to}
-            >
-              <Text fontSize={{ base: "24px" }} p={4}>
+            <Link key={id} to={to} smooth={true} duration={1000}>
+              <Text cursor={"pointer"} fontSize={"24px"}>
                 {title}
               </Text>
             </Link>

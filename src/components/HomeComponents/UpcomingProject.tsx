@@ -13,6 +13,7 @@ import { projectData } from "../../data/projectData";
 export const UpcomingProject = () => {
   return (
     <Box
+      id="projects"
       py={10}
       bg={"#699DCC"}
       // borderRadius={{ md: "0 0 200px 200px", lg: "0 0 250px 250px" }}

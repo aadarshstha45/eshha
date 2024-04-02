@@ -31,7 +31,7 @@ export const Home = () => {
         pos={"relative"}
       >
         <Box
-          top={{ base: 150, md: 263 }}
+          top={{ base: 90, md: 263 }}
           left={{ base: 5, md: 103 }}
           pos={"absolute"}
           w={{ base: "200px", sm: "450px", md: "646px" }}
@@ -61,17 +61,18 @@ export const Home = () => {
               textDecoration: "none",
             }}
             href={"tel:9820266317"}
+            overflow={"hidden"}
           >
-            <PhoneIcon />
+            <PhoneIcon fontSize={"sm"} />
             <Divider orientation="vertical" h={"30px"} />
-            <Box py={2}>
+            <Flex flexDir={"column"} py={2}>
               <Text fontWeight={600} fontSize={18}>
                 9820266317
               </Text>
               <Text fontWeight={600} fontSize={18}>
                 9820266317
               </Text>
-            </Box>
+            </Flex>
           </Flex>
         </Box>
       </Box>

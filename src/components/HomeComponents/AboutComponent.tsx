@@ -10,7 +10,7 @@ import AboutImage from "../../assets/images/about.png";
 import AboutBack from "../../assets/images/aboutback.png";
 export const AboutComponent = () => {
   return (
-    <Box bg={"#242425"} pos={"relative"}>
+    <Box id="about" bg={"#242425"} pos={"relative"}>
       <Image
         src={AboutBack}
         alt="About"

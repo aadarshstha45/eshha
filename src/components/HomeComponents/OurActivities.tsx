@@ -6,7 +6,7 @@ import { activityData } from "../../data/activityData";
 
 export const OurActivities = () => {
   return (
-    <Box py={20}>
+    <Box id="activities" py={20}>
       <Container maxW={"container.xl"}>
         <Text
           fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
@@ -21,6 +21,7 @@ export const OurActivities = () => {
         maxW={"container.xl"}
         alignItems={"center"}
         justifySelf={"center"}
+        py={10}
       >
         <Swiper
           navigation
@@ -48,11 +49,11 @@ export const OurActivities = () => {
           pagination={{ clickable: true }}
           autoplay={{ delay: 1000 }}
           modules={[Navigation, Autoplay]}
-          className="swiper-container"
+          className="swiper-container "
         >
           {activityData.map(({ id, title, description, location, image }) => (
-            <SwiperSlide key={id} className="swiper-items">
-              <Card key={id} w={"280px"} h={"365px"}>
+            <SwiperSlide key={id} className="swiper-items swiper-activities">
+              <Card shadow={"xl"} w={"280px"} h={"365px"}>
                 <CardBody alignSelf={"center"}>
                   <Image
                     border={"1px"}
