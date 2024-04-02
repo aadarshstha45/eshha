@@ -14,30 +14,32 @@ import { footerEmail, footerLinks, footerLocation } from "../data/footerItems";
 
 export const Footer = () => {
   return (
-    <Container maxW={"container.xl"} py={10}>
+    <Container maxW={"90vw"} py={10}>
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 4 }}
-        spacing={20}
+        columns={{ base: 1, sm: 2, lg: 4 }}
+        spacing={10}
         justifyContent={"center"}
       >
         <GridItem colSpan={1}>
-          <Image w={"289px"} h={"62px"} src={Logo} alt="Logo" />
-          <Text
-            fontWeight={500}
-            fontSize={"25px"}
-            lineHeight={"31.25px"}
-            py={2}
-            w={"227.95px"}
-          >
-            Follow on social media
-          </Text>
+          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
+            <Image w={"289px"} h={"62px"} src={Logo} alt="Logo" />
+            <Text
+              fontWeight={500}
+              fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
+              lineHeight={"31.25px"}
+              py={2}
+              w={"227.95px"}
+            >
+              Follow on social media
+            </Text>
+          </Flex>
         </GridItem>
         <GridItem colSpan={1}>
-          <Flex flexDir={"column"}>
+          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
             <Text
-              fontSize={"30px"}
+              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
               fontWeight={700}
-              lineHeight={"37.5px"}
+              lineHeight={"50px"}
               py={2}
             >
               Links
@@ -50,7 +52,7 @@ export const Footer = () => {
                 to={path}
                 key={id}
                 textColor={"#827A7A"}
-                fontSize={"20px"}
+                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
                 fontWeight={500}
                 lineHeight={"25px"}
                 py={2}
@@ -61,11 +63,11 @@ export const Footer = () => {
           </Flex>
         </GridItem>
         <GridItem colSpan={1}>
-          <Flex flexDir={"column"} gap={4}>
+          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
             <Text
-              fontSize={"30px"}
+              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
               fontWeight={700}
-              lineHeight={"37.5px"}
+              lineHeight={"50px"}
               py={2}
             >
               Location
@@ -74,7 +76,7 @@ export const Footer = () => {
               <Text
                 key={id}
                 fontWeight={450}
-                fontSize={"20px"}
+                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
                 lineHeight={"30px"}
                 textColor={"#827A7A"}
               >
@@ -84,20 +86,20 @@ export const Footer = () => {
           </Flex>
         </GridItem>
         <GridItem colSpan={1}>
-          <Flex flexDir={"column"} gap={4}>
+          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
             <Text
-              fontSize={"30px"}
+              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
               fontWeight={700}
-              lineHeight={"37.5px"}
+              lineHeight={"50px"}
               py={2}
             >
-              Location
+              Email
             </Text>
             {footerEmail.map(({ id, email }) => (
               <Link
                 key={id}
                 fontWeight={450}
-                fontSize={"20px"}
+                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
                 lineHeight={"30px"}
                 textColor={"#827A7A"}
                 href={`mailto:${email}`}

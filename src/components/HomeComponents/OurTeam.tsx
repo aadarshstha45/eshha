@@ -14,14 +14,18 @@ export const OurTeam = () => {
   return (
     <Box bg={"#F2F2F2"} my={4}>
       <Container maxW={"container.xl"} py={20}>
-        <Text fontSize={"50px"} fontWeight={700} lineHeight={"50px"} py={2}>
+        <Text
+          fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
+          fontWeight={700}
+          lineHeight={"50px"}
+          py={2}
+        >
           Our Team
         </Text>
         <Text
-          fontSize={"22px"}
+          fontSize={{ base: "14px", sm: "18px", md: "20px", lg: "22px" }}
           fontWeight={450}
           lineHeight={"33px"}
-          py={2}
           textAlign={"justify"}
         >
           Our team consists of professionals with wide range of expertise and
@@ -29,8 +33,8 @@ export const OurTeam = () => {
         </Text>
         <Container
           maxW={{
-            base: "container.sm",
-            sm: "container.md",
+            base: "container.xs",
+            sm: "container.sm",
             lg: "container.lg",
           }}
         >
@@ -42,7 +46,7 @@ export const OurTeam = () => {
           >
             {teamData.map(({ id, name, position, image }) => (
               <Card
-                w={{ base: "full", sm: "200px", lg: "238px" }}
+                w={{ base: "full", sm: "210px", md: "250px", lg: "238px" }}
                 h={"346px"}
                 key={id}
                 borderRadius={"20px"}
@@ -50,10 +54,11 @@ export const OurTeam = () => {
                 <CardHeader alignSelf={"center"}>
                   <Image
                     h={"200px"}
-                    w={{ base: "auto", sm: "200px" }}
+                    w={{ base: "auto", sm: "250px", lg: "200px" }}
                     objectFit={"cover"}
                     src={image}
                     alt={name}
+                    borderRadius={5}
                     justifyItems={"center"}
                   />
                 </CardHeader>

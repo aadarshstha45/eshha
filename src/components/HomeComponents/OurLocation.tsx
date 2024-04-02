@@ -4,7 +4,12 @@ export const OurLocation = () => {
   return (
     <Box my={10}>
       <Container maxW={"container.xl"} py={5}>
-        <Text fontSize={"50px"} fontWeight={700} lineHeight={"50px"} py={2}>
+        <Text
+          fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
+          fontWeight={700}
+          lineHeight={"50px"}
+          py={2}
+        >
           Our Location
         </Text>
       </Container>

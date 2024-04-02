@@ -1,6 +1,6 @@
 import team1 from "../assets/teamImages/1.png";
 import team2 from "../assets/teamImages/2.png";
-import team3 from "../assets/teamImages/3.png";
+import team3 from "../assets/teamImages/3.jpg";
 import team4 from "../assets/teamImages/4.png";
 
 export const teamData = [

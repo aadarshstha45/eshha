@@ -1,0 +1,6 @@
+.swiper-items {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  justify-items: center;
+}
