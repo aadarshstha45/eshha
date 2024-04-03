@@ -6,7 +6,7 @@ import { activityData } from "../../data/activityData";
 
 export const OurActivities = () => {
   return (
-    <Box id="activities" py={20}>
+    <Box id="activities" py={10}>
       <Container maxW={"container.xl"}>
         <Text
           fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
@@ -18,7 +18,7 @@ export const OurActivities = () => {
         </Text>
       </Container>
       <Container
-        maxW={"container.xl"}
+        maxW={{ sm: "90vw", md: "80vw" }}
         alignItems={"center"}
         justifySelf={"center"}
         py={10}

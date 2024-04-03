@@ -8,6 +8,7 @@ import {
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { DoubleIconUp } from "../assets/achievementImages";
 import HomeImage from "../assets/images/banner.png";
@@ -100,9 +101,17 @@ export const Home = () => {
       </Box>
       {!isAtTop && (
         <Box
+          as={motion.div}
+          animate={{
+            y: ["0px", "-15px", "0px"],
+            transition: {
+              duration: 1,
+              repeat: Infinity,
+            },
+          }}
           pos={"fixed"}
-          bottom={10}
-          right={5}
+          bottom={5}
+          right={2}
           zIndex={2}
           aria-label="scroll-to-top"
           bg={"#699DCC"}
