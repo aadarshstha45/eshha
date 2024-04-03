@@ -1,5 +1,5 @@
 import { Box, Card, CardBody, Container, Image, Text } from "@chakra-ui/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { activityData } from "../../data/activityData";
@@ -24,32 +24,37 @@ export const OurActivities = () => {
         py={10}
       >
         <Swiper
-          navigation
           slidesPerView={4}
+          speed={2000}
           breakpoints={{
             0: {
               slidesPerView: 1,
               spaceBetween: 10,
+              navigation: false,
             },
             640: {
               slidesPerView: 2,
               spaceBetween: 10,
+              navigation: false,
             },
             897: {
               slidesPerView: 3,
               spaceBetween: 10,
+              navigation: true,
+              hashNavigation: true,
             },
             1182: {
               slidesPerView: 4,
               spaceBetween: 10,
+              navigation: true,
             },
           }}
           spaceBetween={10}
           loop={true}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 1000 }}
-          modules={[Navigation, Autoplay]}
-          className="swiper-container "
+          autoplay={{ delay: 2000 }}
+          modules={[Navigation, Autoplay, Pagination]}
+          className="swiper-container"
         >
           {activityData.map(({ id, title, description, location, image }) => (
             <SwiperSlide key={id} className="swiper-items swiper-activities">

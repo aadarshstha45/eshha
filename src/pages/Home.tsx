@@ -8,10 +8,13 @@ import {
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { DoubleIconUp } from "../assets/achievementImages";
 import HomeImage from "../assets/images/banner.png";
 import { Footer } from "../components/Footer";
 import { AboutComponent } from "../components/HomeComponents/AboutComponent";
 import { Achievements } from "../components/HomeComponents/Achievements";
+import { Gallery } from "../components/HomeComponents/Gallery";
 import { OurActivities } from "../components/HomeComponents/OurActivities";
 import { OurLocation } from "../components/HomeComponents/OurLocation";
 import { OurTeam } from "../components/HomeComponents/OurTeam";
@@ -19,12 +22,31 @@ import { UpcomingProject } from "../components/HomeComponents/UpcomingProject";
 import { NavBar } from "../components/NavBar";
 export const Home = () => {
   const [isLessThan360] = useMediaQuery("(max-width: 360px)");
+  const [isAtTop, setIsAtTop] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY === 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
-    <Container maxW={"100vw"} overflowX={"hidden"} p={0}>
+    <Container maxW={"100vw"} overflowX={"hidden"} p={0} pos={"relative"}>
       <NavBar />
       <Box
         bgSize="cover"
-        bgPosition="center"
+        bgPosition={"center"}
         bgRepeat="no-repeat"
         h={{ base: "500px", sm: "585px", md: "685px" }}
         bgImage={` url(${HomeImage}) `}
@@ -48,7 +70,7 @@ export const Home = () => {
           <Flex
             as={Link}
             bg={"white"}
-            w={isLessThan360 ? "auto" : "200px"}
+            w={isLessThan360 ? "150px" : "200px"}
             h={"50px"}
             my={10}
             gap={5}
@@ -66,20 +88,39 @@ export const Home = () => {
             <PhoneIcon fontSize={"sm"} />
             <Divider orientation="vertical" h={"30px"} />
             <Flex flexDir={"column"} py={2}>
-              <Text fontWeight={600} fontSize={18}>
+              <Text fontWeight={600} fontSize={{ base: 12, md: 18 }}>
                 9820266317
               </Text>
-              <Text fontWeight={600} fontSize={18}>
+              <Text fontWeight={600} fontSize={{ base: 12, md: 18 }}>
                 9820266317
               </Text>
             </Flex>
           </Flex>
         </Box>
       </Box>
+      {!isAtTop && (
+        <Box
+          pos={"fixed"}
+          bottom={10}
+          right={5}
+          zIndex={2}
+          aria-label="scroll-to-top"
+          bg={"#699DCC"}
+          p={2}
+          borderRadius={5}
+          textColor={"white"}
+          fontSize={"20px"}
+          cursor={"pointer"}
+          onClick={scrollToTop}
+        >
+          <DoubleIconUp />
+        </Box>
+      )}
       <AboutComponent />
       <OurActivities />
       <UpcomingProject />
       <OurTeam />
+      <Gallery />
       <Achievements />
       <OurLocation />
       <Footer />

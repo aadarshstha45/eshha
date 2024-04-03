@@ -92,7 +92,13 @@ export const NavBar = () => {
             icon={<HamburgerIcon />}
           />
           {navItems.map(({ id, title, to }) => (
-            <Link key={id} to={to} smooth={true} duration={1000}>
+            <Link
+              onClick={() => setShowNavMenu(false)}
+              key={id}
+              to={to}
+              smooth={true}
+              duration={1000}
+            >
               <Text cursor={"pointer"} fontSize={"24px"}>
                 {title}
               </Text>

@@ -18,7 +18,7 @@ export const UpcomingProject = () => {
       bg={"#699DCC"}
       // borderRadius={{ md: "0 0 200px 200px", lg: "0 0 250px 250px" }}
     >
-      <Container maxW={"container.xl"} py={5} textColor={"white"}>
+      <Container maxW={"container.xl"} textColor={"white"}>
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           spacing={10}

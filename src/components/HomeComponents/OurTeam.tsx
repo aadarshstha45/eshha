@@ -59,6 +59,8 @@ export const OurTeam = () => {
                     src={image}
                     alt={name}
                     borderRadius={5}
+                    border={"1px"}
+                    borderColor={"gray.300"}
                     justifyItems={"center"}
                   />
                 </CardHeader>
