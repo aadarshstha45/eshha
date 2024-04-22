@@ -8,7 +8,7 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
-import Image2 from "../../assets/images/image2.png";
+import Image3 from "../../assets/images/bus.png";
 import { projectData } from "../../data/projectData";
 export const UpcomingProject = () => {
   return (
@@ -37,20 +37,27 @@ export const UpcomingProject = () => {
               <Text
                 fontSize={{ base: "14px", sm: "18px", md: "20px", lg: "22px" }}
                 fontWeight={450}
-                lineHeight={"33px"}
                 textAlign={"justify"}
               >
                 We are introducing EV automobile Hino Poncho minivan made in
-                japan for public transport. We want to start Electronic Vehcile
+                japan for public transport. We want to start Electronic vehicle
                 after we import machinery vehicle manufactured by Hino Motors
-                sales India Pvt. Bus, truck etc for Nepalese people.
+                sales India Pvt. Ltd. Bus, truck etc for Nepalese people.
+              </Text>
+              <Text
+                fontSize={{ base: "14px", sm: "18px", md: "20px", lg: "22px" }}
+                fontWeight={450}
+                textAlign={"justify"}
+              >
+                At this time automobile technology is developed by EV. So, the
+                international EV, market is very high. Just like information
+                Rivian USA, BYD China, TATA India, EV Korea, Tesla USA.
               </Text>
             </Box>
             <Box mt={4}>
               <Text
                 fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
                 fontWeight={700}
-                lineHeight={"46.88px"}
                 py={2}
               >
                 Why this project?
@@ -66,8 +73,7 @@ export const UpcomingProject = () => {
                       lg: "22px",
                     }}
                     fontWeight={450}
-                    lineHeight={"33px"}
-                    py={2}
+                    py={1}
                     textAlign={"justify"}
                   >
                     {description}
@@ -77,7 +83,7 @@ export const UpcomingProject = () => {
             </Box>
           </GridItem>
           <GridItem colSpan={1}>
-            <Image src={Image2} alt="Image2" />
+            <Image src={Image3} alt="Image2" />
           </GridItem>
         </SimpleGrid>
       </Container>

@@ -24,4 +24,17 @@ const useGalleryStore = create<GalleryState>((set) => ({
   decrementDisplayCount: () => set(() => ({ displayCount: 4 })),
 }));
 
-export { useAchievementStore, useGalleryStore };
+type ActivityState = {
+  displayCount: number;
+  incrementDisplayCount: () => void;
+  decrementDisplayCount: () => void;
+};
+
+const useActivityStore = create<ActivityState>((set) => ({
+  displayCount: 4,
+  incrementDisplayCount: () =>
+    set((state) => ({ displayCount: state.displayCount + 4 })),
+  decrementDisplayCount: () => set(() => ({ displayCount: 4 })),
+}));
+
+export { useAchievementStore, useActivityStore, useGalleryStore };

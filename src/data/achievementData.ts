@@ -5,6 +5,8 @@ import Image4 from "../assets/achievementImages/4.png";
 import Image5 from "../assets/achievementImages/5.png";
 import Image6 from "../assets/achievementImages/6.png";
 import Image7 from "../assets/achievementImages/7.png";
+import Image9 from "../assets/achievementImages/9.jpg";
+
 export const achievementData = [
   {
     id: 1,
@@ -33,5 +35,9 @@ export const achievementData = [
   {
     id: 7,
     image: Image7,
+  },
+  {
+    id: 9,
+    image: Image9,
   },
 ];

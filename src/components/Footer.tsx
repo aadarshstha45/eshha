@@ -3,71 +3,30 @@ import {
   Divider,
   Flex,
   GridItem,
+  HStack,
   Image,
   Link,
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
-import { footerEmail, footerLinks, footerLocation } from "../data/footerItems";
+import { footerEmail, footerLocation } from "../data/footerItems";
+import { socialData } from "../data/socialData";
 
 export const Footer = () => {
   return (
-    <Container maxW={"90vw"} py={10}>
+    <Container id="footer" maxW={"container.xl"} py={5}>
       <SimpleGrid
-        columns={{ base: 1, sm: 2, lg: 4 }}
-        spacing={10}
+        columns={{ base: 2, md: 3 }}
+        spacingX={10}
+        spacingY={5}
         justifyContent={"center"}
       >
         <GridItem colSpan={1}>
           <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
-            <Image w={"289px"} h={"62px"} src={Logo} alt="Logo" />
             <Text
-              fontWeight={500}
-              fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
-              lineHeight={"31.25px"}
-              py={2}
-              w={"227.95px"}
-            >
-              Follow on social media
-            </Text>
-          </Flex>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
-            <Text
-              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
+              fontSize={{ base: "14px", sm: "18px", md: "22px", lg: "25px" }}
               fontWeight={700}
-              lineHeight={"50px"}
-              py={2}
-            >
-              Links
-            </Text>
-            {footerLinks.map(({ id, title, path }) => (
-              <Link
-                textDecor={"none"}
-                _hover={{ textDecor: "none" }}
-                as={NavLink}
-                to={path}
-                key={id}
-                textColor={"#827A7A"}
-                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
-                fontWeight={500}
-                lineHeight={"25px"}
-                py={2}
-              >
-                {title}
-              </Link>
-            ))}
-          </Flex>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
-            <Text
-              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
-              fontWeight={700}
-              lineHeight={"50px"}
               py={2}
             >
               Location
@@ -76,8 +35,7 @@ export const Footer = () => {
               <Text
                 key={id}
                 fontWeight={450}
-                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
-                lineHeight={"30px"}
+                fontSize={{ base: "12px", sm: "16px", md: "18px", lg: "22px" }}
                 textColor={"#827A7A"}
               >
                 {title}
@@ -86,11 +44,10 @@ export const Footer = () => {
           </Flex>
         </GridItem>
         <GridItem colSpan={1}>
-          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
+          <Flex flexDir={"column"}>
             <Text
-              fontSize={{ base: "18px", sm: "20px", md: "22px", lg: "25px" }}
+              fontSize={{ base: "14px", sm: "18px", md: "22px", lg: "25px" }}
               fontWeight={700}
-              lineHeight={"50px"}
               py={2}
             >
               Email
@@ -99,8 +56,7 @@ export const Footer = () => {
               <Link
                 key={id}
                 fontWeight={450}
-                fontSize={{ base: "16px", sm: "18px", md: "20px", lg: "22px" }}
-                lineHeight={"30px"}
+                fontSize={{ base: "12px", sm: "16px", md: "18px", lg: "22px" }}
                 textColor={"#827A7A"}
                 href={`mailto:${email}`}
                 _hover={{ textDecor: "none" }}
@@ -110,9 +66,57 @@ export const Footer = () => {
             ))}
           </Flex>
         </GridItem>
+        <GridItem colSpan={{ base: 2, md: 1 }}>
+          <Flex flexDir={"column"} align={{ base: "center", md: "start" }}>
+            <Image
+              w={{ base: "150px", md: "289px" }}
+              h={{ base: "32px", md: "62px" }}
+              src={Logo}
+              alt="Logo"
+            />
+            <Text
+              textOverflow={"ellipsis"}
+              fontWeight={500}
+              fontSize={{ base: "12px", sm: "18px", md: "20px", lg: "22px" }}
+              py={2}
+              w={{ base: "auto", sm: "227.95px" }}
+            >
+              Follow on social media
+            </Text>
+            <HStack flexWrap={"wrap"} spacing={2} justify={"center"}>
+              {socialData.map(({ id, name, to, icon }) => (
+                <Link
+                  key={id}
+                  href={to}
+                  _hover={{ textDecor: "none" }}
+                  target="_blank"
+                >
+                  <Image boxSize={{ base: 7, sm: 10 }} src={icon} alt={name} />
+                </Link>
+              ))}
+            </HStack>
+          </Flex>
+        </GridItem>
       </SimpleGrid>
       <Divider border={"1px solid"} colorScheme="#6A6B6C" my={4} />
-      <Text textAlign={"center"}>Copyright 2020@ all right</Text>
+      <Flex
+        fontSize={{ base: "12px", sm: "16px", md: "18px", lg: "22px" }}
+        flexDir={"column"}
+        align={"center"}
+      >
+        <Text
+          fontSize={{ base: "12px", sm: "16px", md: "18px", lg: "22px" }}
+          cursor={"pointer"}
+          _hover={{
+            textDecor: "none",
+          }}
+          as={Link}
+          href="https://codetara.com"
+          alignItems={"center"}
+        >
+          Designed and Developed by Code Tara
+        </Text>
+      </Flex>
     </Container>
   );
 };

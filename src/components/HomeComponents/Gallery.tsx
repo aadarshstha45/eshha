@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Image,
@@ -11,6 +12,7 @@ import Lightbox from "yet-another-react-lightbox";
 import {
   Fullscreen,
   Slideshow,
+  Thumbnails,
   Zoom,
 } from "yet-another-react-lightbox/plugins";
 import { galleryData } from "../../data/galleryData";
@@ -26,12 +28,21 @@ export const Gallery = () => {
   const [open, setOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<LightboxImage[]>([]);
 
-  const handleImageClick = (imageSrc: string) => {
+  const handleImageClick = (id: number) => {
+    // Find the clicked image based on its ID
+    const clickedImage = galleryData.find((item) => item.id === id)!;
+    // Filter out the clicked image from the achievement data
+    const otherImages = galleryData.filter((item) => item.id !== id);
+    // Create Lightbox images array with clicked image first, followed by other images
+    const images = [
+      { src: clickedImage.image },
+      ...otherImages.map(({ image }) => ({ src: image })),
+    ];
+    setLightboxImage(images);
     setOpen(true);
-    setLightboxImage([{ src: imageSrc }]);
   };
   return (
-    <Container maxW={"container.xl"} py={10}>
+    <Container maxW={"container.xl"}>
       <Text
         fontSize={{ base: "28px", sm: "32px", md: "36px", lg: "40px" }}
         fontWeight={700}
@@ -41,21 +52,31 @@ export const Gallery = () => {
         Gallery
       </Text>
       <SimpleGrid
-        columns={{ base: 2, md: 3, lg: 4 }}
+        columns={{ base: 2, sm: 3, lg: 4 }}
         gap={2}
         justifyItems={"center"}
         py={5}
       >
         {galleryData?.slice(0, displayCount).map(({ id, image }) => (
-          <Image
-            borderRadius={5}
-            border={"1px"}
-            borderColor={"gray.400"}
-            key={id}
-            src={image}
-            alt={`gallery-${id}`}
-            onClick={() => handleImageClick(image)}
-          />
+          <Box
+            pos={"relative"}
+            key={"id"}
+            h={{ base: "150px", sm: "200px", md: "250px" }}
+            w={{ base: "150px", sm: "200px", md: "250px" }}
+          >
+            <Image
+              borderRadius={5}
+              border={"1px"}
+              borderColor={"gray.400"}
+              key={id}
+              src={image}
+              objectFit={"fill"}
+              h={"full"}
+              w={"full"}
+              alt={`gallery-${id}`}
+              onClick={() => handleImageClick(id)}
+            />
+          </Box>
         ))}
       </SimpleGrid>
       <Stack align={"center"}>
@@ -81,7 +102,7 @@ export const Gallery = () => {
       {open && (
         <Lightbox
           styles={{ container: { backgroundColor: "rgba(0, 0, 0, 0.8)" } }}
-          plugins={[Zoom, Slideshow, Fullscreen]}
+          plugins={[Zoom, Slideshow, Fullscreen, Thumbnails]}
           open={open}
           close={() => setOpen(false)}
           slides={lightboxImage}

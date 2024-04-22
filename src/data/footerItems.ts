@@ -43,10 +43,10 @@ export const footerLocation = [
 export const footerEmail = [
   {
     id: 1,
-    email: "eshhaimples44@gmail.com",
+    email: "eshhaimpex44@gmail.com",
   },
   {
     id: 2,
-    email: "bardikbkt@gmail.com",
+    email: "badribkt@gmail.com",
   },
 ];

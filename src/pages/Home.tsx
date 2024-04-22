@@ -4,9 +4,9 @@ import {
   Container,
   Divider,
   Flex,
+  Image,
   Link,
   Text,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -22,7 +22,6 @@ import { OurTeam } from "../components/HomeComponents/OurTeam";
 import { UpcomingProject } from "../components/HomeComponents/UpcomingProject";
 import { NavBar } from "../components/NavBar";
 export const Home = () => {
-  const [isLessThan360] = useMediaQuery("(max-width: 360px)");
   const [isAtTop, setIsAtTop] = useState(true);
   useEffect(() => {
     const handleScroll = () => {
@@ -43,26 +42,31 @@ export const Home = () => {
     });
   };
   return (
-    <Container maxW={"100vw"} overflowX={"hidden"} p={0} pos={"relative"}>
+    <Container maxW={"100%"} overflowX={"hidden"} p={0} pos={"relative"}>
       <NavBar />
       <Box
-        bgSize="cover"
-        bgPosition={"center"}
+        bgSize="contain"
         bgRepeat="no-repeat"
-        h={{ base: "500px", sm: "585px", md: "685px" }}
-        bgImage={` url(${HomeImage}) `}
+        h={{ base: "220px", sm: "270px", md: "550px", lg: "685px" }}
+        // bgImage={` url(${HomeImage}) `}
         pos={"relative"}
       >
-        <Box
-          top={{ base: 90, md: 263 }}
-          left={{ base: 5, md: 103 }}
+        <Image
+          src={HomeImage}
+          alt="Home Image"
           pos={"absolute"}
-          w={{ base: "200px", sm: "450px", md: "646px" }}
+          h={"100%"}
+          w={"100%"}
+        />
+        <Box
+          top={{ base: 16, md: 150, lg: 263 }}
+          left={{ base: 5, md: 62, lg: 103 }}
+          pos={"absolute"}
+          w={{ base: "200px", md: "450px", lg: "646px" }}
         >
           <Text
             w={"auto"}
-            fontSize={{ base: "24px", sm: "30px", md: "36px", lg: "40px" }}
-            lineHeight={"40px"}
+            fontSize={{ base: "18px", md: "36px", lg: "40px" }}
             fontWeight={700}
             textColor={"white"}
           >
@@ -71,29 +75,29 @@ export const Home = () => {
           <Flex
             as={Link}
             bg={"white"}
-            w={isLessThan360 ? "150px" : "200px"}
-            h={"50px"}
-            my={10}
-            gap={5}
+            w={{ base: "150px", md: "200px" }}
+            h={{ base: "10px", md: "50px" }}
+            my={8}
+            gap={2}
             textColor={"#3A6288"}
-            justify={"center"}
+            justify={"start"}
             align={"center"}
             borderRadius={10}
-            p={2}
+            p={5}
             _hover={{
               textDecoration: "none",
             }}
             href={"tel:9820266317"}
             overflow={"hidden"}
           >
-            <PhoneIcon fontSize={"sm"} />
+            <PhoneIcon fontSize={{ base: "xs", sm: "sm" }} />
             <Divider orientation="vertical" h={"30px"} />
-            <Flex flexDir={"column"} py={2}>
-              <Text fontWeight={600} fontSize={{ base: 12, md: 18 }}>
-                9820266317
+            <Flex flexDir={"column"}>
+              <Text pt={2} fontWeight={600} fontSize={{ base: 9, md: 16 }}>
+                +977-9851021083
               </Text>
-              <Text fontWeight={600} fontSize={{ base: 12, md: 18 }}>
-                9820266317
+              <Text pb={2} fontWeight={600} fontSize={{ base: 9, md: 16 }}>
+                +977-9820266317
               </Text>
             </Flex>
           </Flex>

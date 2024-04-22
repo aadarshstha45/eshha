@@ -6,12 +6,12 @@ export const navItems = [
   },
   {
     id: 2,
-    title: "Our Activities",
+    title: "Our Projects",
     to: "activities",
   },
   {
     id: 3,
-    title: "Projects",
+    title: "Upcoming Projects",
     to: "projects",
   },
   {
@@ -22,6 +22,6 @@ export const navItems = [
   {
     id: 5,
     title: "Contact Us",
-    to: "contact",
+    to: "footer",
   },
 ];
